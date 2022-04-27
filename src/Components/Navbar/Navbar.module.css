@@ -1,0 +1,19 @@
+.nav {
+	grid-area: n;
+	border-radius: 20px;
+	padding: 20px;
+	background-color: #ffe0b2;
+}
+
+.nav__item a {
+	color: #e57373;
+	text-decoration: none;
+}
+
+.nav__item {
+	font-size: 24px;
+}
+
+.nav__item:nth-child(5) {
+	margin-top: 20px;
+}
