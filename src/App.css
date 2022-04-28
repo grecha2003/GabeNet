@@ -9,3 +9,10 @@
 	grid-template-columns: 2fr 10fr;
 	grid-gap: 10px;
 }
+
+.App__Content {
+	grid-area: c;
+	background-color: #efebe9;
+	border-radius: 20px;
+	padding: 20px;
+}
