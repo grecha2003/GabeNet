@@ -1,5 +1,6 @@
 import React from 'react';
 import classes from './AddPosts.module.css';
+import avaImg from '../../../assets/ava.png'
 
 const AddPosts = (props) => {
 	return (
@@ -7,7 +8,7 @@ const AddPosts = (props) => {
 			<div className={classes.post}>
 				<div className={classes.post__item}>
 					<img
-						src='https://semantic-ui.com/images/avatar2/large/matthew.png'
+						src={avaImg}
 						width={'45px'}
 						height={'45px'}
 						alt='post avatar'

@@ -1,5 +1,6 @@
 import React from 'react';
 import classes from './ProfileInfo.module.css';
+import avaImg from '../../assets/ava.png'
 
 const ProfileInfo = () => {
 	return (
@@ -16,7 +17,7 @@ const ProfileInfo = () => {
 			<div>
 				<img
 					className={classes.img__avatar}
-					src='https://semantic-ui.com/images/avatar2/large/matthew.png'
+					src={avaImg}
 					width={'150px'}
 					height={'150px'}
 					alt='user avatar'
