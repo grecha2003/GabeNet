@@ -1,10 +1,13 @@
 .dialogs {
 	display: grid;
 	grid-template-columns: 2fr 10fr;
+	line-height: 30px;
+	font-size: 24px;
 }
 
 .dialog a {
 	color: var(--color-text);
+	text-decoration: none;
 }
 
 .dialogs__items {
@@ -14,4 +17,22 @@
 }
 
 .message {
+}
+
+.messages__send {
+	display: flex;
+	flex-direction: column;
+	margin-top: 20px;
+}
+
+.messages__send textarea {
+	font-size: 24px;
+	width: 500px;
+	height: 100px;
+	resize: none;
+}
+
+.messages__send button {
+	float: right;
+	margin: 8px 287px 0px 0px;
 }

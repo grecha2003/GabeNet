@@ -6,7 +6,6 @@ import Profile from './Components/Profile/Profile';
 import Messages from './Components/Messages/Messages';
 import { Route, Routes } from 'react-router';
 import { BrowserRouter } from 'react-router-dom';
-import { addPost } from './Redux/state';
 
 function App(props) {
 	return (
@@ -21,11 +20,12 @@ function App(props) {
 							element={<Messages state={props.state.MessagesPage} />}
 						/>
 						<Route
-							path='/profile'
+							path='/'
 							element={
 								<Profile
-									state={props.state.profilePage}
+									profilePage={props.state.profilePage}
 									addPost={props.addPost}
+									updateNewPostText={props.updateNewPostText}
 								/>
 							}
 						/>

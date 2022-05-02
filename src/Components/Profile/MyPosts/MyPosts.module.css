@@ -1,0 +1,11 @@
+.write__post textarea {
+	width: 100%;
+	font-size: 24px;
+	height: 100px;
+	resize: none;
+}
+
+.write__btn {
+	float: right;
+	margin: 0px 0px 0px 0px;
+}
