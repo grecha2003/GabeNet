@@ -14,16 +14,18 @@ const ProfileInfo = () => {
 					alt='user background'
 				/>
 			</div>
-			<div>
-				<img
-					className={classes.img__avatar}
-					src={avaImg}
-					width={'150px'}
-					height={'150px'}
-					alt='user avatar'
-				/>
+			<div className={classes.profile__text}>
+				<div>
+					<img
+						className={classes.img__avatar}
+						src={avaImg}
+						width={'150px'}
+						height={'150px'}
+						alt='user avatar'
+					/>
+				</div>
+				<div>text</div>
 			</div>
-			<div>text</div>
 		</div>
 	);
 };

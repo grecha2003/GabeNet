@@ -5,18 +5,29 @@
 	font-size: 24px;
 }
 
+.dialog {
+	margin-top: 15px;
+}
+
 .dialog a {
 	color: var(--color-text);
 	text-decoration: none;
 }
 
+.dialog a:hover {
+	border-bottom: 2px solid #757575;
+}
+
 .dialogs__items {
+	border-right: 1px solid var(--color-text);
+	margin: 0px 20px 0px 0px;
 }
 
 .messages {
 }
 
 .message {
+	margin-top: 15px;
 }
 
 .messages__send {
@@ -27,12 +38,16 @@
 
 .messages__send textarea {
 	font-size: 24px;
-	width: 500px;
+	width: 660px;
 	height: 100px;
+	margin-top: 15px;
 	resize: none;
+	border: none;
+	outline: none;
+	border-radius: 5px;
 }
 
 .messages__send button {
 	float: right;
-	margin: 8px 287px 0px 0px;
+	margin: 7px 129px 0px 0px;
 }

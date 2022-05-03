@@ -3,9 +3,12 @@
 	font-size: 24px;
 	height: 100px;
 	resize: none;
+	border-radius: 5px;
+	border: none;
+	outline: none;
 }
 
 .write__btn {
 	float: right;
-	margin: 0px 0px 0px 0px;
+	margin: 0px -4px 0px 0px;
 }
