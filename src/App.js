@@ -17,7 +17,7 @@ function App(props) {
 					<Routes>
 						<Route
 							path='/messages'
-							element={<Messages state={props.state.MessagesPage} />}
+							element={<Messages store={props.store} />}
 						/>
 						<Route
 							path='/'

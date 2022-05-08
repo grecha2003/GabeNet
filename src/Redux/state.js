@@ -1,3 +1,6 @@
+const UPDATE_NEW_MESSAGE_BODY = 'UPDATE_NEW_MESSAGE_BODY';
+const SEND_MESSAGE = 'SEND_MESSAGE';
+
 let store = {
 	_state: {
 		profilePage: {
@@ -65,6 +68,7 @@ let store = {
 					key: 5,
 				},
 			],
+			newMessageBody: '',
 		},
 	},
 	_callSubscriber() {
@@ -89,6 +93,14 @@ let store = {
 		} else if (action.type === 'UPDATE-NEW-POST-TEXT') {
 			this._state.profilePage.newPostText = action.newText;
 			this._callSubscriber(this._state);
+		} else if (action.type === UPDATE_NEW_MESSAGE_BODY) {
+			this._state.MessagesPage.newMessageBody = action.body;
+			this._callSubscriber(this._state);
+		} else if (action.type === SEND_MESSAGE) {
+			let body = this._state.MessagesPage.newMessageBody;
+			this._state.MessagesPage.newMessageBody = '';
+			this._state.MessagesPage.messageData.push({ id: 6, message: body });
+			this._callSubscriber(this._state);
 		}
 	},
 };
@@ -103,6 +115,19 @@ export const updateNewPostTextActionCreator = (text) => {
 	return {
 		type: 'UPDATE-NEW-POST-TEXT',
 		newText: text,
+	};
+};
+
+export const sendMessageCreator = () => {
+	return {
+		type: 'SEND_MESSAGE',
+	};
+};
+
+export const updateNewMessageBodyCreator = (body) => {
+	return {
+		type: 'UPDATE_NEW_MESSAGE_BODY',
+		body: body,
 	};
 };
 
