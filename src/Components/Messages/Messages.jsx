@@ -1,11 +1,11 @@
 import React from 'react';
-import { sendMessageCreator, updateNewMessageBodyCreator } from '../../Redux/state';
+import { sendMessageCreator, updateNewMessageBodyCreator } from '../../Redux/messagesReducer';
 import DialogItem from './DialogItem/DialogsItem';
 import Message from './Message/Message';
 import classes from './Messages.module.css';
 
 const Messages = (props) => {
-	let state = props.store.getState().MessagesPage;
+	let state = props.store.getState().messagesPage;
 
 	let dialogsElement = state.messageUser.map((dialog) => (
 		<DialogItem name={dialog.name} id={dialog.id} key={dialog.key} />
