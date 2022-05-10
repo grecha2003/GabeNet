@@ -3,11 +3,11 @@ import './App.css';
 import Header from './Components/Header/Header';
 import Navbar from './Components/Navbar/Navbar';
 import Profile from './Components/Profile/Profile';
-import Messages from './Components/Messages/Messages';
 import { Route, Routes } from 'react-router';
 import { BrowserRouter } from 'react-router-dom';
+import MessagesContainer from './Components/Messages/MessagesContainer';
 
-function App(props) {
+function App() {
 	return (
 		<BrowserRouter>
 			<div className='App'>
@@ -15,19 +15,8 @@ function App(props) {
 				<Navbar />
 				<div className='App__Content'>
 					<Routes>
-						<Route
-							path='/messages'
-							element={<Messages store={props.store} />}
-						/>
-						<Route
-							path='/'
-							element={
-								<Profile
-									profilePage={props.state.profilePage}
-									dispatch={props.dispatch}
-								/>
-							}
-						/>
+						<Route path='/messages' element={<MessagesContainer />} />
+						<Route path='/' element={<Profile />} />
 					</Routes>
 				</div>
 			</div>
