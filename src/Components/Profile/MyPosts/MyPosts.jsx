@@ -8,7 +8,7 @@ const MyPosts = (props) => {
 			id={p.id}
 			message={p.message}
 			LikesCount={p.LikesCount}
-			key={p.key}
+			key={p.id}
 		/>
 	));
 

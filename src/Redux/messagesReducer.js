@@ -2,7 +2,7 @@ const UPDATE_NEW_MESSAGE_BODY = 'UPDATE_NEW_MESSAGE_BODY';
 const SEND_MESSAGE = 'SEND_MESSAGE';
 
 let initialState = {
-	messageUser: [
+	users: [
 		{ id: 0, name: 'Maye', key: 0 },
 		{ id: 1, name: 'Donny', key: 1 },
 		{ id: 2, name: 'Kristian', key: 2 },
@@ -10,7 +10,7 @@ let initialState = {
 		{ id: 4, name: 'Sage', key: 4 },
 		{ id: 5, name: 'Adolfo', key: 5 },
 	],
-	messageData: [
+	messages: [
 		{
 			id: 0,
 			message: 'Et quidem quia dolorem autem sunt id magni at.',
@@ -44,14 +44,20 @@ let initialState = {
 
 const messagesReducer = (state = initialState, action) => {
 	switch (action.type) {
-		case UPDATE_NEW_MESSAGE_BODY:
-			state.newMessageBody = action.body;
-			return state;
-		case SEND_MESSAGE:
+		case UPDATE_NEW_MESSAGE_BODY: {
+			return {
+				...state,
+				newMessageBody: action.body,
+			};
+		}
+		case SEND_MESSAGE: {
 			let body = state.newMessageBody;
-			state.newMessageBody = '';
-			state.messageData.push({ id: 6, message: body });
-			return state;
+			return {
+				...state,
+				newMessageBody: '',
+				messages: [...state.messages, { id: 6, message: body }],
+			};
+		}
 		default:
 			return state;
 	}

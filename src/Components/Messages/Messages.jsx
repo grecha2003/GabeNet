@@ -6,11 +6,11 @@ import classes from './Messages.module.css';
 const Messages = (props) => {
 	let state = props.messagesPage;
 
-	let dialogsElement = state.messageUser.map((dialog) => (
-		<DialogItem name={dialog.name} id={dialog.id} key={dialog.key} />
+	let dialogsElement = state.users.map((dialog) => (
+		<DialogItem name={dialog.name} id={dialog.id} key={dialog.id} />
 	));
-	let DialogsDates = state.messageData.map((d) => (
-		<Message id={d.id} message={d.message} key={d.key} />
+	let DialogsDates = state.messages.map((d) => (
+		<Message id={d.id} message={d.message} key={d.id} />
 	));
 	let newMessageBody = state.newMessageBody;
 
