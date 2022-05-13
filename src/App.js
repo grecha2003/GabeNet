@@ -6,6 +6,7 @@ import Profile from './Components/Profile/Profile';
 import { Route, Routes } from 'react-router';
 import { BrowserRouter } from 'react-router-dom';
 import MessagesContainer from './Components/Messages/MessagesContainer';
+import UsersContainer from './Components/Users/UsersContainer';
 
 function App() {
 	return (
@@ -17,6 +18,7 @@ function App() {
 					<Routes>
 						<Route path='/messages' element={<MessagesContainer />} />
 						<Route path='/' element={<Profile />} />
+						<Route path='/users' element={<UsersContainer />} />
 					</Routes>
 				</div>
 			</div>

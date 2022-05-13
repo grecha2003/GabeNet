@@ -1,10 +1,12 @@
 import { combineReducers, legacy_createStore } from 'redux';
 import profileReducer from '../Redux/profileReducer';
 import messagesReducer from '../Redux/messagesReducer';
+import usersReducer from './usersReducer';
 
 let reducers = combineReducers({
 	profilePage: profileReducer,
 	messagesPage: messagesReducer,
+	usersPage: usersReducer,
 });
 
 let store = legacy_createStore(reducers);
