@@ -1,95 +1,43 @@
-import React from 'react';
+import React, { Component } from 'react';
 import avatarImg from '../../Components/assets/ava.png'
 import classes from './Users.module.css'
+import axios from 'axios';
 
-const Users = (props) => {
-	if (props.users.length === 0) {
-		props.setUsers([
-			{
-				id: 0,
-				key: 0,
-				avatarImg: '../../src/Components/assets/ava.png',
-				followed: true,
-				name: 'Maye',
-				status: 'rem-sint-odit',
-				location: { state: 'Russia', city: 'Moscow' },
-			},
-			{
-				id: 1,
-				key: 1,
-				avatarImg: '../../src/Components/assets/ava.png',
-				followed: false,
-				name: 'Donny',
-				status: 'sint-corrupti-voluptatibus',
-				location: { state: 'Russia', city: 'Sevastopol' },
-			},
-			{
-				id: 2,
-				key: 2,
-				avatarImg: '../../src/Components/assets/ava.png',
-				followed: true,
-				name: 'Kristian',
-				status: 'qui-qui-vel',
-				location: { state: 'Ukraine', city: 'Kiev' },
-			},
-			{
-				id: 3,
-				key: 3,
-				avatarImg: '../../src/Components/assets/ava.png',
-				followed: false,
-				name: 'Muhammad',
-				status: 'est-laudantium-omnis',
-				location: { state: 'Israel', city: 'Haifa' },
-			},
-			{
-				id: 4,
-				key: 4,
-				avatarImg: '../../src/Components/assets/ava.png',
-				followed: true,
-				name: 'Sage',
-				status: 'et reiciendis ea',
-				location: { state: 'Belarus', city: 'Minsk' },
-			},
-			{
-				id: 5,
-				key: 5,
-				avatarImg: '../../src/Components/assets/ava.png',
-				followed: false,
-				name: 'Adolfo',
-				status: 'excepturi cum atque',
-				location: { state: 'Kanada', city: 'Toronto' },
-			}
-		])
+class Users extends Component {
+	componentDidMount() {
+		axios.get('https://social-network.samuraijs.com/api/1.0/users').then(response => {
+			this.props.setUsers(response.data.items)
+		});
 	}
 
-	return (
-		<div>
+	render() {
+		return (<div>
 			{
-				props.users.map(u => <div key={u.id}>
+				this.props.users.map(users => <div key={users.id}>
 					<span>
 						<div>
-							<img src={avatarImg} className={classes.avatarImg} />
+							<img src={users.photos.small != null ? users.photos.small : avatarImg} className={classes.avatarImg} alt='user_avatar' />
 						</div>
 						<div>
-							{u.followed
-								? <button onClick={() => { props.unfollow(u.id) }}>Unfollow</button>
-								: <button onClick={() => { props.follow(u.id) }}>Follow</button>}
+							{users.followed
+								? <button onClick={() => { this.props.unfollow(users.id) }}>Unfollow</button>
+								: <button onClick={() => { this.props.follow(users.id) }}>Follow</button>}
 						</div>
 					</span>
 					<span>
 						<span>
-							<div>{u.name}</div>
-							<div>{u.status}</div>
+							<div>{users.name}</div>
+							<div>{users.status}</div>
 						</span>
 						<span>
-							<div>{u.location.city}</div>
-							<div>{u.location.state}</div>
+							<div>{'users.location.city'}</div>
+							<div>{'users.location.state'}</div>
 						</span>
 					</span>
 				</div>)
 			}
-		</div>
-	);
-};
+		</div>);
+	}
+}
 
 export default Users;
