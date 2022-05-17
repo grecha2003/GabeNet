@@ -1,8 +1,12 @@
 import React from 'react';
 import classes from './ProfileInfo.module.css';
-import avaImg from '../../assets/ava.png'
+import Spinner from '../../common/Spinner/Spinner';
 
-const ProfileInfo = () => {
+const ProfileInfo = (props) => {
+	if (!props.profile) {
+		return <Spinner />
+	}
+
 	return (
 		<div>
 			<div>
@@ -18,7 +22,7 @@ const ProfileInfo = () => {
 				<div>
 					<img
 						className={classes.img__avatar}
-						src={avaImg}
+						src={props.profile.photos.large}
 						width={'150px'}
 						height={'150px'}
 						alt='user avatar'
@@ -26,7 +30,7 @@ const ProfileInfo = () => {
 				</div>
 				<div>text</div>
 			</div>
-		</div>
+		</div >
 	);
 };
 

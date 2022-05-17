@@ -2,11 +2,11 @@ import React from 'react';
 import './App.css';
 import Header from './Components/Header/Header';
 import Navbar from './Components/Navbar/Navbar';
-import Profile from './Components/Profile/Profile';
 import { Route, Routes } from 'react-router';
 import { BrowserRouter } from 'react-router-dom';
 import MessagesContainer from './Components/Messages/MessagesContainer';
 import UsersContainer from './Components/Users/UsersContainer';
+import ProfileContainer from './Components/Profile/ProfileContainer';
 
 function App() {
 	return (
@@ -17,7 +17,8 @@ function App() {
 				<div className='App__Content'>
 					<Routes>
 						<Route path='/messages' element={<MessagesContainer />} />
-						<Route path='/' element={<Profile />} />
+						<Route path='/profile' element={<ProfileContainer />} />
+						<Route path='/profile/:userId' element={<ProfileContainer />} />
 						<Route path='/users' element={<UsersContainer />} />
 					</Routes>
 				</div>

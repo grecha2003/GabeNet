@@ -3,12 +3,14 @@ const UNFOLLOW = 'UNFOLLOW';
 const SETUSERS = 'SETUSERS';
 const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
 const SET_TOTAL_USERS_COUNT = 'SET_TOTAL_USERS_COUNT';
+const SPINNER_TOGGLE = 'SPINNER_TOGGLE';
 
 let initialState = {
 	users: [],
 	pageSize: 10,
 	totalUsersCount: 0,
 	currentPage: 1,
+	Spinner: true,
 };
 
 const usersReducer = (state = initialState, action) => {
@@ -53,43 +55,55 @@ const usersReducer = (state = initialState, action) => {
 				totalUsersCount: action.count,
 			};
 		}
+		case SPINNER_TOGGLE: {
+			return {
+				...state,
+				Spinner: action.isFetching,
+			};
+		}
 		default:
 			return state;
 	}
 };
 
-export const followActionCreator = (userId) => {
+export const follow = (userId) => {
 	return {
 		type: 'FOLLOW',
 		userId,
 	};
 };
 
-export const unFollowActionCreator = (userId) => {
+export const unfollow = (userId) => {
 	return {
 		type: 'UNFOLLOW',
 		userId,
 	};
 };
 
-export const setUsersActionCreator = (users) => {
+export const setUsers = (users) => {
 	return {
 		type: 'SETUSERS',
 		users,
 	};
 };
 
-export const setCurrentPageActionCreator = (currentPage) => {
+export const setCurrentPage = (currentPage) => {
 	return {
 		type: 'SET_CURRENT_PAGE',
 		currentPage,
 	};
 };
 
-export const setTotalUsersCountActionCreator = (totalUsersCount) => {
+export const setTotalUsersCount = (totalUsersCount) => {
 	return {
 		type: 'SET_TOTAL_USERS_COUNT',
 		count: totalUsersCount,
+	};
+};
+export const setSpinnerToggle = (isFetching) => {
+	return {
+		type: 'SPINNER_TOGGLE',
+		isFetching,
 	};
 };
 
