@@ -28,7 +28,15 @@ const ProfileInfo = (props) => {
 						alt='user avatar'
 					/>
 				</div>
-				<div>text</div>
+				<div className={classes.profileAbout}>
+					<span>{props.profile.fullName}</span>
+					<span><a href={props.profile.contacts.website}>{props.profile.contacts.website ? 'Web Site' : ''}</a></span>
+					<span><a href={props.profile.contacts.vk}>{props.profile.contacts.vk ? 'VK' : ''}</a></span>
+					<span><a href={props.profile.contacts.github}>{props.profile.contacts.github ? 'GitHub' : ''}</a></span>
+					<span><a href={props.profile.contacts.instagram}>{props.profile.contacts.instagram ? 'Instagram' : ''}</a></span>
+					<span>Looking for a job: {props.profile.lookingForAJob ? 'Yes' : 'No'}</span>
+					<span>{props.profile.lookingForAJobDescription}</span>
+				</div>
 			</div>
 		</div >
 	);

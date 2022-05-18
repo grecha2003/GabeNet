@@ -29,15 +29,15 @@ const MyPosts = (props) => {
 				<div className={classes.write__post}>
 					<textarea onChange={onPostCnange} ref={newPostElement} value={props.newPostText} placeholder='Enter your post' />
 				</div>
-				<div className={classes.write__btn}>
-					<button
+				<div>
+					<button className={classes.write__btn}
 						onClick={onAddPost}>
 						Add post
 					</button>
 				</div>
 			</div>
 			{postsElement}
-		</div>
+		</div >
 	);
 };
 

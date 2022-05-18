@@ -12,3 +12,16 @@
 	display: flex;
 	margin: 0px 0px 10px 0px;
 }
+
+.profileAbout {
+	display: flex;
+	flex-direction: column;
+	line-height: 24px;
+	margin: 10px 0px 0px 10px;
+}
+
+.profileAbout span:nth-child(1) {
+	font-size: 30px;
+	font-weight: bold;
+	margin-bottom: 10px;
+}

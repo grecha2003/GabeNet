@@ -1,4 +1,7 @@
 .header {
+	display: grid;
+	width: 100%;
+	grid-template-rows: 15px;
 	grid-area: h;
 	border-radius: 20px;
 	background-color: #ffe0b2;
@@ -6,4 +9,13 @@
 
 .header img {
 	width: 80px;
+}
+
+.authBlock {
+	display: flex;
+	justify-content: flex-end;
+	margin: 0px 26px 0px 0px;
+	font-weight: bold;
+	font-size: 24px;
+	height: 100%;
 }
