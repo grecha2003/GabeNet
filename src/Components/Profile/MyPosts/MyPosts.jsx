@@ -15,7 +15,11 @@ const MyPosts = (props) => {
 	let newPostElement = React.createRef();
 
 	let onAddPost = () => {
-		props.addPost();
+		if (props.newPostText) {
+			props.addPost()
+		} else {
+			alert('empty text box')
+		}
 	}
 
 	let onPostCnange = () => {

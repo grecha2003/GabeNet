@@ -4,6 +4,7 @@ const SETUSERS = 'SETUSERS';
 const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
 const SET_TOTAL_USERS_COUNT = 'SET_TOTAL_USERS_COUNT';
 const SPINNER_TOGGLE = 'SPINNER_TOGGLE';
+const TOGGLE_FOLLOWING_IN_SEND = 'TOGGLE_FOLLOWING_IN_SEND';
 
 let initialState = {
 	users: [],
@@ -11,6 +12,7 @@ let initialState = {
 	totalUsersCount: 0,
 	currentPage: 1,
 	Spinner: true,
+	followingInSend: false,
 };
 
 const usersReducer = (state = initialState, action) => {
@@ -61,6 +63,12 @@ const usersReducer = (state = initialState, action) => {
 				Spinner: action.isFetching,
 			};
 		}
+		case TOGGLE_FOLLOWING_IN_SEND: {
+			return {
+				...state,
+				followingInSend: action.isFetching,
+			};
+		}
 		default:
 			return state;
 	}
@@ -100,9 +108,17 @@ export const setTotalUsersCount = (totalUsersCount) => {
 		count: totalUsersCount,
 	};
 };
+
 export const setSpinnerToggle = (isFetching) => {
 	return {
 		type: 'SPINNER_TOGGLE',
+		isFetching,
+	};
+};
+
+export const followingInSend = (isFetching) => {
+	return {
+		type: 'TOGGLE_FOLLOWING_IN_SEND',
 		isFetching,
 	};
 };

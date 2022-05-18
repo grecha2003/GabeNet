@@ -1,30 +1,26 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import axios from 'axios';
 import Users from './Users';
 import { follow, setCurrentPage, setSpinnerToggle, setTotalUsersCount, setUsers, unfollow } from '../../Redux/usersReducer';
 import Spinner from '../common/Spinner/Spinner';
+import { usersAPI } from '../../api/api';
 
 class UsersContainer extends Component {
 	componentDidMount() {
 		this.props.setSpinnerToggle(true);
-		axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`, {
-			withCredentials: true
-		}).then(response => {
+		usersAPI.getUsers(this.props.currentPage, this.props.pageSize).then(data => {
 			this.props.setSpinnerToggle(false);
-			this.props.setUsers(response.data.items)
-			this.props.setTotalUsersCount(response.data.totalCount)
+			this.props.setUsers(data.items)
+			this.props.setTotalUsersCount(data.totalCount)
 		});
 	}
 
 	onPageChanged = (pageNumber) => {
 		this.props.setCurrentPage(pageNumber);
 		this.props.setSpinnerToggle(true);
-		axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`, {
-			withCredentials: true
-		}).then(response => {
+		usersAPI.getUsers(this.props.currentPage, this.props.pageSize).then(data => {
 			this.props.setSpinnerToggle(false);
-			this.props.setUsers(response.data.items)
+			this.props.setUsers(data.items)
 		});
 	}
 
