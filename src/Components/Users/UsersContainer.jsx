@@ -6,6 +6,8 @@ import {
 	toggleFollowingProgress, getUsersThunkCreator
 } from '../../Redux/usersReducer';
 import Spinner from '../common/Spinner/Spinner';
+import { AuthRedirect } from '../../hoc/AuthRedirect';
+import { compose } from 'redux';
 
 class UsersContainer extends Component {
 	componentDidMount() {
@@ -43,7 +45,10 @@ let mapStateToProps = (state) => {
 	}
 }
 
-export default connect(mapStateToProps, {
-	follow, unfollow, setCurrentPage,
-	toggleFollowingProgress, getUsersThunkCreator
-})(UsersContainer);
+export default compose(
+	AuthRedirect,
+	connect(mapStateToProps, {
+		follow, unfollow, setCurrentPage,
+		toggleFollowingProgress, getUsersThunkCreator
+	})
+)(UsersContainer)

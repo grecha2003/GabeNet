@@ -1,6 +1,7 @@
 import React from "react";
 import classes from "./ProfileInfo.module.css";
 import Spinner from "../../common/Spinner/Spinner";
+import ProfileStatus from "./ProfileStatus";
 
 const ProfileInfo = (props) => {
 	if (!props.profile) {
@@ -27,6 +28,7 @@ const ProfileInfo = (props) => {
 						height={"150px"}
 						alt="user avatar"
 					/>
+					<ProfileStatus status={'hello!!!'} />
 				</div>
 				<div className={classes.profileAbout}>
 					<span>{props.profile.fullName}</span>
