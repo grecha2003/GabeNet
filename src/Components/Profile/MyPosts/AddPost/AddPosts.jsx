@@ -1,18 +1,13 @@
 import React from 'react';
 import classes from './AddPosts.module.css';
-import avaImg from '../../../assets/ava.png'
+import avaImg from '../../../assets/ava.png';
 
 const AddPosts = (props) => {
 	return (
 		<div className={classes.posts}>
 			<div className={classes.post}>
 				<div className={classes.post__item}>
-					<img
-						src={avaImg}
-						width={'45px'}
-						height={'45px'}
-						alt='post avatar'
-					/>
+					<img src={avaImg} width={'45px'} height={'45px'} alt="post avatar" />
 					<div className={classes.post__text}>{props.message}</div>
 				</div>
 				<div className={classes.post__ptext}>

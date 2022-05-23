@@ -14,8 +14,8 @@ let store = {
 				{
 					id: 1,
 					message: `Laudantium quas tempore.Voluptatibus sit necessitatibus quisquam itaque iure rem.
-								Laborum est et recusandae voluptatum.
-								Et dolores dolore qui reiciendis.`,
+																	Laborum est et recusandae voluptatum.
+																	Et dolores dolore qui reiciendis.`,
 					LikesCount: 20,
 					key: 1,
 				},
@@ -31,12 +31,36 @@ let store = {
 		},
 		MessagesPage: {
 			messageUser: [
-				{ id: 0, name: 'Maye', key: 0 },
-				{ id: 1, name: 'Donny', key: 1 },
-				{ id: 2, name: 'Kristian', key: 2 },
-				{ id: 3, name: 'Muhammad', key: 3 },
-				{ id: 4, name: 'Sage', key: 4 },
-				{ id: 5, name: 'Adolfo', key: 5 },
+				{
+					id: 0,
+					name: 'Maye',
+					key: 0,
+				},
+				{
+					id: 1,
+					name: 'Donny',
+					key: 1,
+				},
+				{
+					id: 2,
+					name: 'Kristian',
+					key: 2,
+				},
+				{
+					id: 3,
+					name: 'Muhammad',
+					key: 3,
+				},
+				{
+					id: 4,
+					name: 'Sage',
+					key: 4,
+				},
+				{
+					id: 5,
+					name: 'Adolfo',
+					key: 5,
+				},
 			],
 			messageData: [
 				{
@@ -49,11 +73,14 @@ let store = {
 					message: 'Doloribus sequi mollitia nihil eos aut saepe.',
 					key: 1,
 				},
-				{ id: 2, message: 'Quis eos et.', key: 2 },
+				{
+					id: 2,
+					message: 'Quis eos et.',
+					key: 2,
+				},
 				{
 					id: 3,
-					message:
-						'Tempora et deserunt consectetur odio et quaerat eum repellat.',
+					message: 'Tempora et deserunt consectetur odio et quaerat eum repellat.',
 					key: 3,
 				},
 				{
@@ -63,8 +90,7 @@ let store = {
 				},
 				{
 					id: 5,
-					message:
-						'Qui ut impedit rerum error aspernatur sit deserunt accusamus quia.',
+					message: 'Qui ut impedit rerum error aspernatur sit deserunt accusamus quia.',
 					key: 5,
 				},
 			],
@@ -82,10 +108,7 @@ let store = {
 	},
 	dispatch(action) {
 		this._state.profilePage = profileReducer(this._state.profilePage, action);
-		this._state.MessagesPage = messagesReducer(
-			this._state.MessagesPage,
-			action
-		);
+		this._state.MessagesPage = messagesReducer(this._state.MessagesPage, action);
 
 		this._callSubscriber(this._state);
 	},

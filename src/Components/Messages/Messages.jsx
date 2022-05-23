@@ -18,15 +18,15 @@ const Messages = (props) => {
 	let addMessage = React.createRef();
 
 	let sendMessageClick = () => {
-		props.sendMessage()
-	}
+		props.sendMessage();
+	};
 
 	let onNewMessageChange = (e) => {
 		let body = e.target.value;
 		props.updateNewMessageBody(body);
-	}
+	};
 	if (!props.isAuth) {
-		return <Navigate to={'/login'} />
+		return <Navigate to={'/login'} />;
 	}
 
 	return (
@@ -37,7 +37,12 @@ const Messages = (props) => {
 			<div className={classes.messages}>
 				<div>{DialogsDates}</div>
 				<div className={classes.messages__send}>
-					<textarea value={newMessageBody} ref={addMessage} onChange={onNewMessageChange} placeholder='Enter your message' />
+					<textarea
+						value={newMessageBody}
+						ref={addMessage}
+						onChange={onNewMessageChange}
+						placeholder="Enter your message"
+					/>
 					<div>
 						<button onClick={sendMessageClick}>Отправить</button>
 					</div>

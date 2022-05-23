@@ -7,21 +7,18 @@ import { compose } from 'redux';
 let mapStateToProps = (state) => {
 	return {
 		messagesPage: state.messagesPage,
-	}
-}
+	};
+};
 
 let mapDispatchToProps = (dispatch) => {
 	return {
 		sendMessage: () => {
-			dispatch(sendMessageCreator())
+			dispatch(sendMessageCreator());
 		},
 		updateNewMessageBody: (body) => {
-			dispatch(updateNewMessageBodyCreator(body))
-		}
-	}
-}
+			dispatch(updateNewMessageBodyCreator(body));
+		},
+	};
+};
 
-export default compose(
-	connect(mapStateToProps, mapDispatchToProps),
-	AuthRedirect
-)(Messages)
+export default compose(connect(mapStateToProps, mapDispatchToProps), AuthRedirect)(Messages);
