@@ -1,8 +1,38 @@
 import React from 'react';
-import { Navigate } from 'react-router';
 import DialogItem from './DialogItem/DialogsItem';
 import Message from './Message/Message';
 import classes from './Messages.module.css';
+import { Formik, Form, Field } from 'formik';
+
+const AddEnterMessages = (props) => {
+	let addNewMessage = (values) => {
+		props.sendMessage(values);
+	};
+
+	return (
+		<Formik
+			initialValues={{
+				newMessageBody: '',
+			}}
+			onSubmit={(values, { resetForm }) => {
+				addNewMessage(values.newMessageBody);
+				resetForm({ values: '' });
+				console.log(values);
+			}}
+		>
+			<Form>
+				<div className={classes.messages__send}>
+					<Field as={'textarea'} name={'newMessageBody'} placeholder={'Enter your message'} />
+					<div>
+						<button type={'submit'} className={classes.btnSend}>
+							^ω^ Send ^ω^
+						</button>
+					</div>
+				</div>
+			</Form>
+		</Formik>
+	);
+};
 
 const Messages = (props) => {
 	let state = props.messagesPage;
@@ -13,21 +43,6 @@ const Messages = (props) => {
 	let DialogsDates = state.messages.map((d) => (
 		<Message id={d.id} message={d.message} key={d.id} />
 	));
-	let newMessageBody = state.newMessageBody;
-
-	let addMessage = React.createRef();
-
-	let sendMessageClick = () => {
-		props.sendMessage();
-	};
-
-	let onNewMessageChange = (e) => {
-		let body = e.target.value;
-		props.updateNewMessageBody(body);
-	};
-	if (!props.isAuth) {
-		return <Navigate to={'/login'} />;
-	}
 
 	return (
 		<div className={classes.dialogs}>
@@ -36,17 +51,7 @@ const Messages = (props) => {
 			</div>
 			<div className={classes.messages}>
 				<div>{DialogsDates}</div>
-				<div className={classes.messages__send}>
-					<textarea
-						value={newMessageBody}
-						ref={addMessage}
-						onChange={onNewMessageChange}
-						placeholder="Enter your message"
-					/>
-					<div>
-						<button onClick={sendMessageClick}>Отправить</button>
-					</div>
-				</div>
+				<AddEnterMessages sendMessage={props.sendMessage} />
 			</div>
 		</div>
 	);

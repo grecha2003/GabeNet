@@ -2,6 +2,7 @@ import React from 'react';
 import classes from './ProfileInfo.module.css';
 import Spinner from '../../common/Spinner/Spinner';
 import ProfileStatus from './ProfileStatus';
+import avaImg from '../../assets/avaUsers.png';
 
 const ProfileInfo = (props) => {
 	if (!props.profile) {
@@ -23,7 +24,7 @@ const ProfileInfo = (props) => {
 				<div>
 					<img
 						className={classes.img__avatar}
-						src={props.profile.photos.large}
+						src={props.profile.photos.large || avaImg}
 						width={'150px'}
 						height={'150px'}
 						alt="user avatar"
