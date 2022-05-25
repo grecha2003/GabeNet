@@ -1,11 +1,13 @@
 import React from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
+import { connect } from 'react-redux';
+import { login } from '../../Redux/authReducer';
 
 const validateLoginForm = (values) => {
 	const errors = {};
 	if (!values.email) {
-		errors.email = 'empty text box';
+		errors.email = 'required field';
 	} else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)) {
 		errors.email = 'invalid email address';
 	}
@@ -14,12 +16,12 @@ const validateLoginForm = (values) => {
 
 const validationSchemaLoginForm = Yup.object().shape({
 	password: Yup.string()
-		.min(2, 'must be longer than 2 characters')
-		.max(5, 'must be shorter than 5 characters')
-		.required('empty text box'),
+		.min(2, 'Min length is 2 symbols')
+		.max(30, 'Max length is 30 symbols')
+		.required('required field'),
 });
 
-const Login = () => {
+const Login = (props) => {
 	return (
 		<div>
 			<h2>Login</h2>
@@ -31,28 +33,48 @@ const Login = () => {
 				}}
 				validate={validateLoginForm}
 				validationSchema={validationSchemaLoginForm}
-				onSubmit={(values) => {
+				onSubmit={(values, formData) => {
+					props.login(formData.email, formData.password, formData.rememberMe);
 					console.log(values);
 				}}
 			>
 				{() => (
-					<Form>
-						<div>
-							<Field name={'email'} type={'text'} placeholder={'email'} />
+					<Form style={{ fontSize: '16px' }}>
+						<div style={{ display: 'flex', color: 'red', marginBottom: '5px' }}>
+							<Field
+								name={'email'}
+								type={'text'}
+								placeholder={'email'}
+								style={{ height: '24px', fontSize: '16px' }}
+							/>
+							<ErrorMessage
+								name="email"
+								component="div"
+								placeholder={'email'}
+								style={{ margin: '5px 0px 0px 0px' }}
+							/>
 						</div>
-						<ErrorMessage name="email" component="div" placeholder={'email'} />
-
-						<div>
-							<Field name={'password'} type={'password'} placeholder={'password'} />
+						<div style={{ display: 'flex', color: 'red', marginBottom: '5px' }}>
+							<Field
+								name={'password'}
+								type={'password'}
+								placeholder={'password'}
+								style={{ height: '24px', fontSize: '16px' }}
+							/>
+							<ErrorMessage name="password" component="div" style={{ margin: '5px 0px 0px 0px' }} />
 						</div>
-						<ErrorMessage name="password" component="div" />
-
-						<div>
-							<Field type={'checkbox'} name={'rememberMe'} id="rememberMe" />
+						<div style={{ marginBottom: '5px' }}>
+							<Field
+								type={'checkbox'}
+								name={'rememberMe'}
+								id="rememberMe"
+								style={{ width: '16px', height: '16px', margin: '0 auto' }}
+							/>
 							<label htmlFor={'rememberMe'}> remember me </label>
 						</div>
-
-						<button type={'submit'}>Login</button>
+						<button type={'submit'} style={{ fontSize: '16px' }}>
+							Login
+						</button>
 					</Form>
 				)}
 			</Formik>
@@ -60,4 +82,4 @@ const Login = () => {
 	);
 };
 
-export default Login;
+export default connect(null, { login })(Login);
