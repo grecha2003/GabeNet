@@ -54,25 +54,36 @@ const Login = (props) => {
 								style={{ margin: '5px 0px 0px 0px' }}
 							/>
 						</div>
-						<div style={{ display: 'flex', color: 'red', marginBottom: '5px' }}>
+						<div style={{ display: 'flex', marginBottom: '5px' }}>
 							<Field
 								name={'password'}
 								type={'password'}
 								placeholder={'password'}
 								style={{ height: '24px', fontSize: '16px' }}
 							/>
-							<ErrorMessage name="password" component="div" style={{ margin: '5px 0px 0px 0px' }} />
+							<ErrorMessage
+								name="password"
+								component="div"
+								style={{ margin: '5px 0px 0px 0px', color: 'red' }}
+							/>
 						</div>
 						<div style={{ marginBottom: '5px' }}>
 							<Field
 								type={'checkbox'}
 								name={'rememberMe'}
 								id="rememberMe"
-								style={{ width: '16px', height: '16px', margin: '0 auto' }}
+								style={{
+									width: '16px',
+									height: '16px',
+									margin: '0px 4px 0px 0px',
+									verticalAlign: 'bottom',
+								}}
 							/>
-							<label htmlFor={'rememberMe'}> remember me </label>
+							<label htmlFor={'rememberMe'} style={{}}>
+								remember me
+							</label>
 						</div>
-						<button type={'submit'} style={{ fontSize: '16px' }}>
+						<button type={'submit'} style={{ fontSize: '16px', marginTop: '3px' }}>
 							Login
 						</button>
 					</Form>
