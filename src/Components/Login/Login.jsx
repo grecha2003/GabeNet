@@ -33,8 +33,8 @@ const Login = (props) => {
 				}}
 				validate={validateLoginForm}
 				validationSchema={validationSchemaLoginForm}
-				onSubmit={(values, formData) => {
-					props.login(formData.email, formData.password, formData.rememberMe);
+				onSubmit={(values) => {
+					props.login(values.email, values.password, values.rememberMe);
 					console.log(values);
 				}}
 			>
