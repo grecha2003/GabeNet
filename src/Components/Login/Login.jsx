@@ -3,6 +3,7 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { connect } from 'react-redux';
 import { login } from '../../Redux/authReducer';
+import { Navigate } from 'react-router';
 
 const validateLoginForm = (values) => {
 	const errors = {};
@@ -22,6 +23,10 @@ const validationSchemaLoginForm = Yup.object().shape({
 });
 
 const Login = (props) => {
+	if (props.isAuth) {
+		return <Navigate to={'/profile'} />;
+	}
+
 	return (
 		<div>
 			<h2>Login</h2>
@@ -54,27 +59,43 @@ const Login = (props) => {
 								style={{ margin: '5px 0px 0px 0px' }}
 							/>
 						</div>
-						<div style={{ display: 'flex', color: 'red', marginBottom: '5px' }}>
+						<div style={{ display: 'flex', marginBottom: '5px' }}>
 							<Field
 								name={'password'}
 								type={'password'}
 								placeholder={'password'}
 								style={{ height: '24px', fontSize: '16px' }}
 							/>
-							<ErrorMessage name="password" component="div" style={{ margin: '5px 0px 0px 0px' }} />
+							<ErrorMessage
+								name="password"
+								component="div"
+								style={{ margin: '5px 0px 0px 0px', color: 'red' }}
+							/>
 						</div>
 						<div style={{ marginBottom: '5px' }}>
 							<Field
 								type={'checkbox'}
 								name={'rememberMe'}
 								id="rememberMe"
-								style={{ width: '16px', height: '16px', margin: '0 auto' }}
+								style={{
+									width: '16px',
+									height: '16px',
+									margin: '0px 4px 0px 0px',
+									verticalAlign: 'bottom',
+								}}
 							/>
-							<label htmlFor={'rememberMe'}> remember me </label>
+							<label htmlFor={'rememberMe'} style={{}}>
+								remember me
+							</label>
 						</div>
-						<button type={'submit'} style={{ fontSize: '16px' }}>
+						<button
+							type={'submit'}
+							style={{ fontSize: '16px', marginTop: '3px' }}
+							disabled={Formik.isSubmitting}
+						>
 							Login
 						</button>
+						{Formik.status && <div style={{ color: 'red' }}>{Formik.status}</div>}
 					</Form>
 				)}
 			</Formik>
@@ -82,4 +103,8 @@ const Login = (props) => {
 	);
 };
 
-export default connect(null, { login })(Login);
+const mapStateToProps = (state) => ({
+	isAuth: state.auth.isAuth,
+});
+
+export default connect(mapStateToProps, { login })(Login);

@@ -47,6 +47,8 @@ export const login = (email, password, rememberMe) => {
 		authAPI.login(email, password, rememberMe).then((response) => {
 			if (response.data.resultCode === 0) {
 				dispatch(getAuthTC());
+			} else {
+				alert(response.data.messages[0]);
 			}
 		});
 	};
