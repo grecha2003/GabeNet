@@ -5,6 +5,7 @@ import { getUserProfileTC, getStatusTC, updateStatus } from '../../Redux/profile
 import { useParams } from 'react-router';
 import { AuthRedirect } from '../../hoc/AuthRedirect';
 import { compose } from 'redux';
+import Spinner from '../common/Spinner/Spinner';
 
 const withRouter = (WrappedComponent) => (props) => {
 	const params = useParams();
@@ -16,12 +17,19 @@ class ProfileContainer extends Component {
 		let userId = this.props.params.userId;
 		if (!userId) {
 			userId = this.props.authorizedUserId;
+			if (!userId) {
+				this.props.history.push('/login');
+			}
 		}
 		this.props.getUserProfileTC(userId);
 		this.props.getStatusTC(userId);
 	}
 
 	render() {
+		if (!this.props.profile) {
+			return <Spinner />;
+		}
+
 		return (
 			<div>
 				<Profile

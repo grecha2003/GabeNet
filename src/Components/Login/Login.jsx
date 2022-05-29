@@ -24,7 +24,7 @@ const validationSchemaLoginForm = Yup.object().shape({
 
 const Login = (props) => {
 	if (props.isAuth) {
-		return <Navigate to={'/profile'} />;
+		return <Navigate replace to={'/profile'} />;
 	}
 
 	return (

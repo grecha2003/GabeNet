@@ -11,10 +11,13 @@ const Header = (props) => {
 			/>
 			<div className={classes.authBlock}>
 				{props.isAuth ? (
-					props.login
+					<div>
+						{/* creates send to /login */}
+						{props.login} - <button onClick={props.logout}>Log out</button>
+					</div>
 				) : (
 					<NavLink to={'/login'} className={classes.authText}>
-						Log In
+						Login
 					</NavLink>
 				)}
 			</div>

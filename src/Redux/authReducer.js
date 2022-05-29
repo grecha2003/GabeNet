@@ -16,7 +16,6 @@ const authReducer = (state = initialState, action) => {
 			return {
 				...state,
 				...action.payload,
-				isAuth: true,
 			};
 		}
 		default:
@@ -31,15 +30,12 @@ export const setUserData = (id, email, login, isAuth) => {
 	};
 };
 
-export const getAuthTC = () => {
-	return (dispatch) => {
-		authAPI.getMe().then((response) => {
-			if (response.data.resultCode === 0) {
-				let { id, email, login } = response.data.data;
-				dispatch(setUserData(id, email, login, true));
-			}
-		});
-	};
+export const getAuthTC = () => async (dispatch) => {
+	const response = await authAPI.getMe();
+	if (response.data.resultCode === 0) {
+		let { id, email, login } = response.data.data;
+		dispatch(setUserData(id, email, login, true));
+	}
 };
 
 export const login = (email, password, rememberMe) => {
