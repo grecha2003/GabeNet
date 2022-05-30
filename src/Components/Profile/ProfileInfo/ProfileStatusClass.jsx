@@ -23,12 +23,10 @@ class ProfileStatus extends Component {
 			status: e.currentTarget.value,
 		});
 	};
-
 	componentDidUpdate(prevProps, prevState) {
 		if (prevProps.status !== this.props.status) {
 			this.setState({ status: this.props.status });
 		}
-		console.log('componentDidUpdate');
 	}
 
 	render() {

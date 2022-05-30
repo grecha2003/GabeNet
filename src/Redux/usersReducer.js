@@ -128,10 +128,11 @@ export const toggleFollowingProgress = (isFetching, userId) => {
 	};
 };
 
-export const getUsersThunkCreator = (currentPage, pageSize) => {
+export const getUsersThunkCreator = (page, pageSize) => {
 	return (dispatch) => {
 		dispatch(setSpinnerToggle(true));
-		usersAPI.getUsers(currentPage, pageSize).then((data) => {
+		dispatch(setCurrentPage(page));
+		usersAPI.getUsers(page, pageSize).then((data) => {
 			dispatch(setSpinnerToggle(false));
 			dispatch(setUsers(data.items));
 			dispatch(setTotalUsersCount(data.totalCount));

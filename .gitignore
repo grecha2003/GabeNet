@@ -11,7 +11,8 @@ dist/
 node_modules
 npm-debug.*
 Thumbs.db
-.vercel
-.yarnrc.yml
+*.vercel
+*.yarnrc.yml
 yarn.lock
-.yarn
+*.yarn
+*.yaml

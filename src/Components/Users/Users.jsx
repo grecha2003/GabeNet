@@ -18,7 +18,6 @@ const Users = (props) => {
 						<span
 							onClick={() => {
 								props.onPageChanged(p);
-								debugger;
 							}}
 							className={props.currentPage === p ? classes.selectedPage : props.currentPage}
 						>

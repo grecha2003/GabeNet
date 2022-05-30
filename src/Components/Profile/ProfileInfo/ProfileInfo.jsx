@@ -1,8 +1,9 @@
 import React from 'react';
 import classes from './ProfileInfo.module.css';
 import Spinner from '../../common/Spinner/Spinner';
-import ProfileStatus from './ProfileStatus';
+import ProfileStatus from './ProfileStatusClass';
 import avaImg from '../../assets/avaUsers.png';
+import ProfileStatusHooks from './ProfileStatusHooks';
 
 const ProfileInfo = (props) => {
 	if (!props.profile) {
@@ -14,7 +15,7 @@ const ProfileInfo = (props) => {
 			<div>
 				<img
 					className={classes.img__top}
-					src="https://kartinkin.net/uploads/posts/2021-07/1625635272_4-kartinkin-com-p-estetichnie-foni-minimalizm-krasivie-foni-5.jpg"
+					src="https://cdn.akamai.steamstatic.com/steamcommunity/public/images/clans/31858821/03b96bd3377b9f796689ac28f87b881b7453721a.jpg"
 					width={'100%'}
 					height={'240px'}
 					alt="user background"
@@ -29,7 +30,7 @@ const ProfileInfo = (props) => {
 						height={'150px'}
 						alt="user avatar"
 					/>
-					<ProfileStatus status={props.status} updateStatus={props.updateStatus} />
+					<ProfileStatusHooks status={props.status} updateStatus={props.updateStatus} />
 				</div>
 				<div className={classes.profileAbout}>
 					<span>{props.profile.fullName}</span>
