@@ -1,7 +1,6 @@
 import React from 'react';
 import classes from './ProfileInfo.module.css';
 import Spinner from '../../common/Spinner/Spinner';
-import ProfileStatus from './ProfileStatusClass';
 import avaImg from '../../assets/avaUsers.png';
 import ProfileStatusHooks from './ProfileStatusHooks';
 
