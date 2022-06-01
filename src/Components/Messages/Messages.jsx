@@ -4,9 +4,9 @@ import Message from './Message/Message';
 import classes from './Messages.module.css';
 import { Formik, Form, Field } from 'formik';
 
-const AddEnterMessages = (props) => {
+const AddEnterMessages = ({ sendMessage }) => {
 	let addNewMessage = (values) => {
-		props.sendMessage(values);
+		sendMessage(values);
 	};
 
 	return (
@@ -34,8 +34,8 @@ const AddEnterMessages = (props) => {
 	);
 };
 
-const Messages = (props) => {
-	let state = props.messagesPage;
+const Messages = ({ messagesPage, sendMessage }) => {
+	let state = messagesPage;
 
 	let dialogsElement = state.users.map((dialog) => (
 		<DialogItem name={dialog.name} id={dialog.id} key={dialog.id} />
@@ -51,7 +51,7 @@ const Messages = (props) => {
 			</div>
 			<div className={classes.messages}>
 				<div>{DialogsDates}</div>
-				<AddEnterMessages sendMessage={props.sendMessage} />
+				<AddEnterMessages sendMessage={sendMessage} />
 			</div>
 		</div>
 	);

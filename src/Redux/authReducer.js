@@ -1,6 +1,6 @@
 import { authAPI } from '../api/api';
 
-const SET_USER_DATA = 'SET_USER_DATA';
+const SET_USER_DATA = 'gabeNet/auth/SET_USER_DATA';
 
 let initialState = {
 	id: null,
@@ -24,7 +24,7 @@ const authReducer = (state = initialState, action) => {
 };
 
 export const setUserData = (id, email, login, isAuth) => ({
-	type: 'SET_USER_DATA',
+	type: 'gabeNet/auth/SET_USER_DATA',
 	payload: { id, email, login, isAuth },
 });
 
@@ -36,26 +36,20 @@ export const getAuthTC = () => async (dispatch) => {
 	}
 };
 
-export const login = (email, password, rememberMe) => {
-	return (dispatch) => {
-		authAPI.login(email, password, rememberMe).then((response) => {
-			if (response.data.resultCode === 0) {
-				dispatch(getAuthTC());
-			} else {
-				alert(response.data.messages[0]);
-			}
-		});
-	};
+export const login = (email, password, rememberMe) => async (dispatch) => {
+	const response = await authAPI.login(email, password, rememberMe);
+	if (response.data.resultCode === 0) {
+		dispatch(getAuthTC());
+	} else {
+		alert(response.data.messages[0]);
+	}
 };
 
-export const logout = () => {
-	return (dispatch) => {
-		authAPI.logout().then((response) => {
-			if (response.data.resultCode === 0) {
-				dispatch(setUserData(null, null, null, false));
-			}
-		});
-	};
+export const logout = () => async (dispatch) => {
+	const response = await authAPI.logout();
+	if (response.data.resultCode === 0) {
+		dispatch(setUserData(null, null, null, false));
+	}
 };
 
 export default authReducer;

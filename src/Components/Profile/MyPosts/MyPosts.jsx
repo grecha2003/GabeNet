@@ -3,20 +3,20 @@ import AddPosts from './AddPost/AddPosts';
 import classes from './MyPosts.module.css';
 import { Formik, Form, Field } from 'formik';
 
-const MyPosts = (props) => {
-	let postsElement = props.posts.map((p) => (
+const MyPosts = ({ posts, addPost }) => {
+	let postsElement = posts.map((p) => (
 		<AddPosts id={p.id} message={p.message} LikesCount={p.LikesCount} key={p.id} />
 	));
 
 	// let newPostElement = React.createRef();
 	// let onPostCnange = () => {
 	// 	let text = newPostElement.current.value;
-	// 	props.updateNewPostText(text);
+	// 	updateNewPostText(text);
 	// };
 
 	let onAddPost = (values) => {
 		if (values) {
-			props.addPost(values);
+			addPost(values);
 		} else {
 			alert('empty text box');
 		}

@@ -22,8 +22,8 @@ const validationSchemaLoginForm = Yup.object().shape({
 		.required('required field'),
 });
 
-const Login = (props) => {
-	if (props.isAuth) {
+const Login = ({ isAuth, login }) => {
+	if (isAuth) {
 		return <Navigate replace to={'/profile'} />;
 	}
 
@@ -39,7 +39,7 @@ const Login = (props) => {
 				validate={validateLoginForm}
 				validationSchema={validationSchemaLoginForm}
 				onSubmit={(values) => {
-					props.login(values.email, values.password, values.rememberMe);
+					login(values.email, values.password, values.rememberMe);
 					console.log(values);
 				}}
 			>

@@ -96,22 +96,21 @@ export const deletedPost = (postId) => {
 	};
 };
 
-export const getUserProfileTC = (userId) => (dispatch) => {
-	profileAPI.getProfile(userId).then((response) => {
-		dispatch(setUserProfile(response.data));
-	});
+export const getUserProfileTC = (userId) => async (dispatch) => {
+	const response = await profileAPI.getProfile(userId);
+	dispatch(setUserProfile(response.data));
 };
-export const getStatusTC = (userId) => (dispatch) => {
-	profileAPI.getStatus(userId).then((response) => {
-		dispatch(setStatusAC(response.data));
-	});
+
+export const getStatusTC = (userId) => async (dispatch) => {
+	const response = await profileAPI.getStatus(userId);
+	dispatch(setStatusAC(response.data));
 };
-export const updateStatus = (status) => (dispatch) => {
-	profileAPI.updateStatus(status).then((response) => {
-		if (response.data.resultCode === 0) {
-			dispatch(setStatusAC(status));
-		}
-	});
+
+export const updateStatus = (status) => async (dispatch) => {
+	const response = await profileAPI.updateStatus(status);
+	if (response.data.resultCode === 0) {
+		dispatch(setStatusAC(status));
+	}
 };
 
 export default profileReducer;

@@ -1,7 +1,8 @@
 .nav {
+	margin-bottom: auto;
 	grid-area: n;
 	border-radius: 20px;
-	padding: 20px;
+	padding: 20px 20px 204px 20px;
 	background-color: #ffe0b2;
 }
 
