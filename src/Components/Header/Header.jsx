@@ -1,9 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import classes from './Header.module.css';
+import classes from './Header.module.scss';
 import logo from '../assets/logo.png';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowRightFromBracket } from '@fortawesome/free-solid-svg-icons';
 
 const Header = ({ isAuth, login, logout }) => {
 	return (
@@ -14,8 +12,7 @@ const Header = ({ isAuth, login, logout }) => {
 					<div>
 						{login}{' '}
 						<button className={classes.btnLogout} onClick={logout}>
-							Log out
-							<FontAwesomeIcon icon={faArrowRightFromBracket} />
+							Logout
 						</button>
 					</div>
 				) : (

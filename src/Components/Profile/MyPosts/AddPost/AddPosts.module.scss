@@ -1,23 +1,19 @@
 .posts {
 	margin-top: 15px;
 }
-
-.post__item img {
-	border-radius: 50px;
-}
-
 .post__item {
 	display: flex;
 	align-items: center;
 	border: 1px solid #757575;
 	border-radius: 50px;
 	padding: 9px;
+	img {
+		border-radius: 50px;
+	}
 }
-
 .post__text {
 	margin-left: 10px;
 }
-
 .post__ptext {
 	text-align: right;
 	margin: 5px 20px -5px 0px;

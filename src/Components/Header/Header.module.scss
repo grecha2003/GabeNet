@@ -1,0 +1,64 @@
+@import '../../fontawesome/scss/fontawesome.scss';
+@import '../../fontawesome/scss/solid.scss';
+
+.header {
+	display: grid;
+	width: 100%;
+	grid-template-rows: 15px;
+	grid-area: h;
+	border-radius: 20px;
+	background-color: #ffe0b2;
+	img {
+		width: 45px;
+		height: 45px;
+		margin: 7px 0px 0px 10px;
+	}
+}
+.authBlock {
+	display: flex;
+	justify-content: flex-end;
+	margin: 0px 26px 0px 0px;
+	font-weight: bold;
+	font-size: 24px;
+	height: 100%;
+}
+.btnLogout {
+	@extend %fa-icon;
+	@extend .fas;
+	background: #d3d3d3;
+	color: #2c2c2c;
+	cursor: pointer;
+	font-size: 24px;
+	border: 0;
+	font-family: 'Karla', 'Font Awesome 5 Free', sans-serif;
+	margin: -10px -15px 0px 0px;
+	padding: 0.5rem;
+	transition: all 0.5s;
+	border-radius: 10px;
+	width: auto;
+	position: relative;
+	&::after {
+		content: fa-content($fa-var-sign-out-alt);
+		transform: translate(-50%, -50%);
+		position: absolute;
+		left: 83%;
+		top: 48%;
+		right: 0;
+		bottom: 0;
+		opacity: 0;
+		opacity: 0;
+		transition: all 0.5s;
+		color: #ffffff;
+	}
+	&:hover {
+		background: #ff8787;
+		transition: all 0.5s;
+		border-radius: 10px;
+		padding: 0.5rem 2.8rem 0.5rem 0.5rem;
+		color: #ffffff;
+		&::after {
+			opacity: 1;
+			transition: all 0.5s;
+		}
+	}
+}

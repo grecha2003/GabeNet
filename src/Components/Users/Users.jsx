@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import avaUsers from '../../Components/assets/avaUsers.png';
-import classes from './Users.module.css';
+import classes from './Users.module.scss';
 
 const Users = ({
 	totalUsersCount,

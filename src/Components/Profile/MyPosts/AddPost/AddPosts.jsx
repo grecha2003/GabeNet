@@ -1,5 +1,5 @@
 import React from 'react';
-import classes from './AddPosts.module.css';
+import classes from './AddPosts.module.scss';
 import avaImg from '../../../assets/ava.png';
 
 const AddPosts = ({ message, LikesCount }) => {

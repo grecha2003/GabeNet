@@ -1,7 +1,7 @@
 import React from 'react';
 import DialogItem from './DialogItem/DialogsItem';
 import Message from './Message/Message';
-import classes from './Messages.module.css';
+import classes from './Messages.module.scss';
 import { Formik, Form, Field } from 'formik';
 
 const AddEnterMessages = ({ sendMessage }) => {

@@ -4,54 +4,44 @@
 	line-height: 30px;
 	font-size: 24px;
 }
-
 .dialog {
 	margin-top: 15px;
+	a {
+		color: var(--color-text);
+		text-decoration: none;
+		&:hover {
+			border-bottom: 2px solid #757575;
+		}
+	}
 }
-
-.dialog a {
-	color: var(--color-text);
-	text-decoration: none;
-}
-
-.dialog a:hover {
-	border-bottom: 2px solid #757575;
-}
-
 .dialogs__items {
 	border-right: 1px solid var(--color-text);
 	margin: 0px 20px 0px 0px;
 }
-
 .messages {
 }
-
 .message {
 	margin-top: 15px;
 }
-
 .messages__send {
 	display: flex;
 	flex-direction: column;
 	margin-top: 20px;
+	textarea {
+		font-size: 24px;
+		width: 660px;
+		height: 100px;
+		margin-top: 15px;
+		resize: none;
+		border: none;
+		outline: none;
+		border-radius: 5px;
+	}
+	button {
+		float: right;
+		margin: 7px 129px 0px 0px;
+	}
 }
-
-.messages__send textarea {
-	font-size: 24px;
-	width: 660px;
-	height: 100px;
-	margin-top: 15px;
-	resize: none;
-	border: none;
-	outline: none;
-	border-radius: 5px;
-}
-
-.messages__send button {
-	float: right;
-	margin: 7px 129px 0px 0px;
-}
-
 .btnSend {
 	margin: 5px 0px 0px 2px;
 	padding: 10px 4px;
@@ -62,10 +52,9 @@
 	border-radius: 5px;
 	text-decoration: none;
 	cursor: pointer;
-}
-
-.btnSend:hover {
-	-moz-box-shadow: 0 0 3px #000;
-	-webkit-box-shadow: 0 0 3px #000;
-	box-shadow: 0 0 3px #000;
+	&:hover {
+		-moz-box-shadow: 0 0 3px #000;
+		-webkit-box-shadow: 0 0 3px #000;
+		box-shadow: 0 0 3px #000;
+	}
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 import AddPosts from './AddPost/AddPosts';
-import classes from './MyPosts.module.css';
+import classes from './MyPosts.module.scss';
 import { Formik, Form, Field } from 'formik';
 
 const MyPosts = ({ posts, addPost }) => {

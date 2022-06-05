@@ -1,5 +1,5 @@
 import React from 'react';
-import classes from './ProfileInfo.module.css';
+import classes from './ProfileInfo.module.scss';
 import Spinner from '../../common/Spinner/Spinner';
 import avaImg from '../../assets/avaUsers.png';
 import ProfileStatusHooks from './ProfileStatusHooks';

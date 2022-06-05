@@ -1,0 +1,36 @@
+.nav {
+	margin-bottom: auto;
+	grid-area: n;
+	border-radius: 20px;
+	padding: 20px 20px 204px 20px;
+	background-color: #ffe0b2;
+}
+.nav__item {
+	font-size: 24px;
+	&:nth-child(6) {
+		margin-top: 20px;
+	}
+	a {
+		position: relative;
+		line-height: 30px;
+		cursor: pointer;
+		color: #e57373;
+		text-decoration: none;
+		&:after {
+			position: absolute;
+			text-decoration: underline;
+			top: 100%;
+			left: 0;
+			width: 0;
+			height: 2px;
+			background-color: #757575;
+			content: '';
+			transition: width 0.2s ease-out;
+		}
+		&:hover {
+			&:after {
+				width: 100%;
+			}
+		}
+	}
+}

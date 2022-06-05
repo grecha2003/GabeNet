@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import classes from '../Messages.module.css';
+import classes from '../Messages.module.scss';
 
 const DialogItem = ({ id, name }) => {
 	return (

@@ -2,26 +2,24 @@
 	border-radius: 5px;
 	object-fit: cover;
 }
-
 .img__avatar {
 	margin-top: 10px;
 	border-radius: 5px;
 }
-
 .profile__text {
 	display: flex;
 	margin: 0px 0px 10px 0px;
 }
-
 .profileAbout {
 	display: flex;
 	flex-direction: column;
 	line-height: 24px;
 	margin: 10px 0px 0px 10px;
-}
-
-.profileAbout span:nth-child(1) {
-	font-size: 30px;
-	font-weight: bold;
-	margin-bottom: 10px;
+	span {
+		&:nth-child(1) {
+			font-size: 30px;
+			font-weight: bold;
+			margin-bottom: 10px;
+		}
+	}
 }
