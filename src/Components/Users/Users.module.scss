@@ -67,20 +67,21 @@
 	-o-transition: all 0.4s ease-in-out;
 	-webkit-transition: all 0.4s ease-in-out;
 	transition: all 0.4s ease-in-out;
+	&:hover {
+		background-position: 100% 0;
+		-moz-transition: all 0.4s ease-in-out;
+		-o-transition: all 0.4s ease-in-out;
+		-webkit-transition: all 0.4s ease-in-out;
+		transition: all 0.4s ease-in-out;
+	}
+	&:focus {
+		outline: none;
+	}
+	&:active {
+		color: rgba(208, 201, 192, 1);
+		transition: all 0.1s ease-in-out;
+	}
 }
-
-.bn632Hover:hover {
-	background-position: 100% 0;
-	-moz-transition: all 0.4s ease-in-out;
-	-o-transition: all 0.4s ease-in-out;
-	-webkit-transition: all 0.4s ease-in-out;
-	transition: all 0.4s ease-in-out;
-}
-
-.bn632Hover:focus {
-	outline: none;
-}
-
 .bn632Hover.bn27 {
 	background-image: linear-gradient(to right, #ed6ea0, #ec8c69, #f7186a, #fbb03b);
 	box-shadow: 0 4px 15px 0 rgba(236, 116, 149, 0.75);
