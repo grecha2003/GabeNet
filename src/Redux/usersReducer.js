@@ -11,7 +11,7 @@ const TOGGLE_FOLLOWING_IN_PROGRESS = 'TOGGLE_FOLLOWING_IN_PROGRESS';
 let initialState = {
 	users: [],
 	pageSize: 32,
-	totalUsersCount: 0,
+	totalItemsCount: 0,
 	currentPage: 1,
 	Spinner: true,
 	followingInProgress: [],
@@ -61,7 +61,7 @@ const usersReducer = (state = initialState, action) => {
 		case SET_TOTAL_USERS_COUNT: {
 			return {
 				...state,
-				totalUsersCount: action.count,
+				totalItemsCount: action.count,
 			};
 		}
 		case SPINNER_TOGGLE: {
@@ -111,10 +111,10 @@ export const setCurrentPage = (currentPage) => {
 	};
 };
 
-export const setTotalUsersCount = (totalUsersCount) => {
+export const setTotalUsersCount = (totalItemsCount) => {
 	return {
 		type: 'SET_TOTAL_USERS_COUNT',
-		count: totalUsersCount,
+		count: totalItemsCount,
 	};
 };
 

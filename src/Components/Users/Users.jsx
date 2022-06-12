@@ -1,24 +1,19 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import avaUsers from '../../Components/assets/avaUsers.png';
+import Paginator from '../common/Spinner/Paginator/Paginator';
 import classes from './Users.module.scss';
 
 const Users = ({
-	totalUsersCount,
-	pageSize,
-	onPageChanged,
 	currentPage,
+	onPageChanged,
+	totalItemsCount,
+	pageSize,
 	users,
 	followingInProgress,
 	follow,
 	unfollow,
 }) => {
-	let pagesCount = Math.ceil(totalUsersCount / pageSize);
-	let pages = [];
-	for (let i = 1; i <= pagesCount; i++) {
-		pages.push(i);
-		if (i === 8) break;
-	}
 	return (
 		<>
 			<div className={classes.usersGrid}>
@@ -71,19 +66,13 @@ const Users = ({
 					</div>
 				))}
 			</div>
-			<div className={classes.pagiNamber}>
-				{pages.map((p) => {
-					return (
-						<span
-							onClick={() => {
-								onPageChanged(p);
-							}}
-							className={currentPage === p ? classes.selectedPage : currentPage}
-						>
-							{p}
-						</span>
-					);
-				})}
+			<div>
+				<Paginator
+					currentPage={currentPage}
+					onPageChanged={onPageChanged}
+					totalItemsCount={totalItemsCount}
+					pageSize={pageSize}
+				/>
 			</div>
 		</>
 	);
