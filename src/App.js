@@ -12,6 +12,7 @@ import { connect, Provider } from 'react-redux';
 import { initializeApp } from './Redux/appReducer';
 import Spinner from './Components/common/Spinner/Spinner';
 import store from './Redux/reduxStore';
+import './bootstrap/dist/css/bootstrap.css';
 
 class App extends React.Component {
 	componentDidMount() {

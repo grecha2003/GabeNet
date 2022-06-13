@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import avaUsers from '../../Components/assets/avaUsers.png';
-import Paginator from '../common/Spinner/Paginator/Paginator';
+import Paginator from '../common/Paginator/Paginator';
 import classes from './Users.module.scss';
 
 const Users = ({
@@ -66,14 +66,12 @@ const Users = ({
 					</div>
 				))}
 			</div>
-			<div>
-				<Paginator
-					currentPage={currentPage}
-					onPageChanged={onPageChanged}
-					totalItemsCount={totalItemsCount}
-					pageSize={pageSize}
-				/>
-			</div>
+			<Paginator
+				currentPage={currentPage}
+				onPageChanged={onPageChanged}
+				totalItemsCount={totalItemsCount}
+				pageSize={pageSize}
+			/>
 		</>
 	);
 };
