@@ -12,8 +12,8 @@ import Spinner from './Components/common/Spinner/Spinner';
 import store from './Redux/reduxStore';
 import './bootstrap/dist/css/bootstrap.css';
 
-const ProfileContainer = React.lazy(() => import('./Components/Profile/ProfileContainer'));
-const MessagesContainer = React.lazy(() => import('./Components/Messages/MessagesContainer'));
+const ProfileContainerLazy = React.lazy(() => import('./Components/Profile/ProfileContainer'));
+const MessagesContainerLazy = React.lazy(() => import('./Components/Messages/MessagesContainer'));
 
 class App extends React.Component {
 	componentDidMount() {
@@ -37,7 +37,7 @@ class App extends React.Component {
 									path="/messages"
 									element={
 										<Suspense fallback={<Spinner />}>
-											<MessagesContainer />
+											<MessagesContainerLazy />
 										</Suspense>
 									}
 								/>
@@ -45,11 +45,18 @@ class App extends React.Component {
 									path="/profile"
 									element={
 										<Suspense fallback={<Spinner />}>
-											<ProfileContainer />
+											<ProfileContainerLazy />
 										</Suspense>
 									}
 								/>
-								<Route path="/profile/:userId" element={<ProfileContainer />} />
+								<Route
+									path="/profile/:userId"
+									element={
+										<Suspense fallback={<Spinner />}>
+											<ProfileContainerLazy />
+										</Suspense>
+									}
+								/>
 								<Route path="/users" element={<UsersContainer />} />
 								<Route path="/login" element={<Login />} />
 							</Routes>
