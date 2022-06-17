@@ -26,7 +26,7 @@ const Paginator = ({ totalItemsCount, pageSize, currentPage, onPageChanged, port
 						}}
 					/>
 				)}
-				{portionNumber > 1 && (
+				{currentPage >= 2 && (
 					<Pagination.Prev
 						className={classes.paginationItem}
 						activeLabel={currentPage}
@@ -55,7 +55,7 @@ const Paginator = ({ totalItemsCount, pageSize, currentPage, onPageChanged, port
 							</Pagination.Item>
 						);
 					})}
-				{portionCount > currentPage - 2 && (
+				{portionCount > currentPage && (
 					<Pagination.Next
 						className={classes.paginationItem}
 						onClick={() => {

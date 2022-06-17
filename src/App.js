@@ -1,11 +1,9 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import './App.scss';
 import Navbar from './Components/Navbar/Navbar';
 import { Route, Routes } from 'react-router';
 import { BrowserRouter } from 'react-router-dom';
-import MessagesContainer from './Components/Messages/MessagesContainer';
 import UsersContainer from './Components/Users/UsersContainer';
-import ProfileContainer from './Components/Profile/ProfileContainer';
 import HeaderContainer from './Components/Header/HeaderContainer';
 import Login from './Components/Login/Login';
 import { connect, Provider } from 'react-redux';
@@ -13,6 +11,9 @@ import { initializeApp } from './Redux/appReducer';
 import Spinner from './Components/common/Spinner/Spinner';
 import store from './Redux/reduxStore';
 import './bootstrap/dist/css/bootstrap.css';
+
+const ProfileContainer = React.lazy(() => import('./Components/Profile/ProfileContainer'));
+const MessagesContainer = React.lazy(() => import('./Components/Messages/MessagesContainer'));
 
 class App extends React.Component {
 	componentDidMount() {
@@ -32,8 +33,22 @@ class App extends React.Component {
 						<Navbar />
 						<div className="App__Content">
 							<Routes>
-								<Route path="/messages" element={<MessagesContainer />} />
-								<Route path="/profile" element={<ProfileContainer />} />
+								<Route
+									path="/messages"
+									element={
+										<Suspense fallback={<Spinner />}>
+											<MessagesContainer />
+										</Suspense>
+									}
+								/>
+								<Route
+									path="/profile"
+									element={
+										<Suspense fallback={<Spinner />}>
+											<ProfileContainer />
+										</Suspense>
+									}
+								/>
 								<Route path="/profile/:userId" element={<ProfileContainer />} />
 								<Route path="/users" element={<UsersContainer />} />
 								<Route path="/login" element={<Login />} />
