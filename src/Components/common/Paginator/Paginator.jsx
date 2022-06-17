@@ -26,14 +26,27 @@ const Paginator = ({ totalItemsCount, pageSize, currentPage, onPageChanged, port
 						}}
 					/>
 				)}
+				{portionNumber > 1 && (
+					<Pagination.Prev
+						className={classes.paginationItem}
+						activeLabel={currentPage}
+						onClick={() => {
+							currentPage - 1 > 0 && onPageChanged(currentPage - 1);
+							if (currentPage <= leftPortionPageNumber) {
+								setPortionNumber(portionNumber - 1);
+							}
+						}}
+					/>
+				)}
 				{pages
 					.filter((p) => p >= leftPortionPageNumber && p <= rightPortionPageNumber)
 					.map((p) => {
 						return (
 							<Pagination.Item
 								className={classes.paginationItem}
+								active={p === currentPage}
+								activeLabel={active}
 								key={p}
-								active={p === active}
 								onClick={() => {
 									onPageChanged(p);
 								}}
@@ -42,6 +55,17 @@ const Paginator = ({ totalItemsCount, pageSize, currentPage, onPageChanged, port
 							</Pagination.Item>
 						);
 					})}
+				{portionCount > currentPage - 2 && (
+					<Pagination.Next
+						className={classes.paginationItem}
+						onClick={() => {
+							currentPage + 1 > 0 && onPageChanged(currentPage + 1);
+							if (currentPage >= rightPortionPageNumber) {
+								setPortionNumber(portionNumber + 1);
+							}
+						}}
+					/>
+				)}
 				{portionCount > portionNumber && (
 					<Pagination.Last
 						className={classes.paginationItem}
