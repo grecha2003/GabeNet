@@ -4,10 +4,16 @@ import Spinner from '../../common/Spinner/Spinner';
 import avaImg from '../../assets/avaUsers.png';
 import ProfileStatusHooks from './ProfileStatusHooks';
 
-const ProfileInfo = ({ profile, status, updateStatus }) => {
+const ProfileInfo = ({ profile, status, updateStatus, isOwner, savePhoto }) => {
 	if (!profile) {
 		return <Spinner />;
 	}
+
+	const onMainPhotoSelected = (e) => {
+		if (e.target.files.length) {
+			savePhoto(e.target.files[0]);
+		}
+	};
 
 	return (
 		<div>
@@ -29,6 +35,7 @@ const ProfileInfo = ({ profile, status, updateStatus }) => {
 						height={'150px'}
 						alt="user avatar"
 					/>
+					{isOwner && <input type="file" onChange={onMainPhotoSelected} />}
 					<ProfileStatusHooks status={status} updateStatus={updateStatus} />
 				</div>
 				<div className={classes.profileAbout}>

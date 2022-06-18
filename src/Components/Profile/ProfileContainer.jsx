@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Profile from './Profile';
 import { connect } from 'react-redux';
-import { getUserProfileTC, getStatusTC, updateStatus } from '../../Redux/profileReducer';
+import { getUserProfileTC, getStatusTC, updateStatus, savePhoto } from '../../Redux/profileReducer';
 import { useParams } from 'react-router';
 import { AuthRedirect } from '../../hoc/AuthRedirect';
 import { compose } from 'redux';
@@ -13,7 +13,7 @@ const withRouter = (WrappedComponent) => (props) => {
 };
 
 class ProfileContainer extends Component {
-	componentDidMount() {
+	refreshProfile() {
 		let userId = this.props.params.userId;
 		if (!userId) {
 			userId = this.props.authorizedUserId;
@@ -25,6 +25,16 @@ class ProfileContainer extends Component {
 		this.props.getStatusTC(userId);
 	}
 
+	componentDidMount() {
+		this.refreshProfile();
+	}
+
+	componentDidUpdate(prevProps) {
+		if (this.props.params.userId !== prevProps.params.userId) {
+			this.refreshProfile();
+		}
+	}
+
 	render() {
 		if (!this.props.profile) {
 			return <Spinner />;
@@ -34,9 +44,11 @@ class ProfileContainer extends Component {
 			<div>
 				<Profile
 					{...this.props}
+					isOwner={!this.props.params.userId}
 					profile={this.props.profile}
 					status={this.props.status}
 					updateStatus={this.props.updateStatus}
+					savePhoto={this.props.savePhoto}
 				/>
 			</div>
 		);
@@ -51,7 +63,7 @@ let mapStateToProps = (state) => ({
 });
 
 export default compose(
-	connect(mapStateToProps, { getUserProfileTC, getStatusTC, updateStatus }),
+	connect(mapStateToProps, { getUserProfileTC, getStatusTC, updateStatus, savePhoto }),
 	withRouter,
 	AuthRedirect
 )(ProfileContainer);
