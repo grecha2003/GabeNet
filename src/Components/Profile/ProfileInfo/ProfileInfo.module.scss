@@ -1,3 +1,9 @@
+$color-signal: #037de4;
+$color-success: #4dd171;
+$color-warning: #fe4f3e;
+$color-muted: #f7f9fa;
+$color-light: #c1c7cd;
+
 .img__top {
 	border-radius: 5px;
 	object-fit: cover;
@@ -14,12 +20,43 @@
 	display: flex;
 	flex-direction: column;
 	line-height: 24px;
-	margin: 10px 0px 0px 10px;
+	margin: 10px 0px 0px 0px;
+	height: 70%;
+	width: auto;
 	span {
 		&:nth-child(1) {
 			font-size: 30px;
 			font-weight: bold;
 			margin-bottom: 10px;
+		}
+	}
+}
+
+.moduleFiles {
+	display: flex;
+	align-items: flex-end;
+	margin-bottom: 0.5em;
+	min-width: 10em;
+	width: 0;
+	.inputFile {
+		width: 0.1px;
+		height: 0.1px;
+		opacity: 0;
+		overflow: hidden;
+		position: absolute;
+		z-index: -1;
+	}
+	.labelFile {
+		filter: blur(100px);
+		position: absolute;
+		padding: 0.3rem 1.5rem;
+		color: #fff;
+		cursor: pointer;
+		&:hover {
+			filter: blur(0px);
+		}
+		&:before {
+			color: darken($color-light, 24);
 		}
 	}
 }

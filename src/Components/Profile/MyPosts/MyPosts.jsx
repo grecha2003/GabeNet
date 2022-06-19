@@ -3,9 +3,15 @@ import AddPosts from './AddPost/AddPosts';
 import classes from './MyPosts.module.scss';
 import { Formik, Form, Field } from 'formik';
 
-const MyPosts = ({ posts, addPost }) => {
+const MyPosts = ({ posts, addPost, profile }) => {
 	let postsElement = posts.map((p) => (
-		<AddPosts id={p.id} message={p.message} LikesCount={p.LikesCount} key={p.id} />
+		<AddPosts
+			id={p.id}
+			message={p.message}
+			LikesCount={p.LikesCount}
+			key={p.id}
+			profile={profile}
+		/>
 	));
 
 	// let newPostElement = React.createRef();

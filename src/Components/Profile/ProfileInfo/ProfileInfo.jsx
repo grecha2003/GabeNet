@@ -28,14 +28,26 @@ const ProfileInfo = ({ profile, status, updateStatus, isOwner, savePhoto }) => {
 			</div>
 			<div className={classes.profile__text}>
 				<div>
-					<img
-						className={classes.img__avatar}
-						src={profile.photos.large || avaImg}
-						width={'150px'}
-						height={'150px'}
-						alt="user avatar"
-					/>
-					{isOwner && <input type="file" onChange={onMainPhotoSelected} />}
+					<div className={classes.moduleFiles}>
+						<img
+							className={classes.img__avatar}
+							src={profile.photos.large || avaImg}
+							width={'150px'}
+							height={'150px'}
+							alt="user avatar"
+						/>
+						{isOwner && (
+							<input
+								type="file"
+								id="updateAva"
+								onChange={onMainPhotoSelected}
+								className={classes.inputFile}
+							/>
+						)}
+						<label for="updateAva" className={classes.labelFile}>
+							Update avatar
+						</label>
+					</div>
 					<ProfileStatusHooks status={status} updateStatus={updateStatus} />
 				</div>
 				<div className={classes.profileAbout}>
