@@ -44,9 +44,11 @@ const ProfileInfo = ({ profile, status, updateStatus, isOwner, savePhoto }) => {
 								className={classes.inputFile}
 							/>
 						)}
-						<label for="updateAva" className={classes.labelFile}>
-							Update avatar
-						</label>
+						{isOwner && (
+							<label for="updateAva" className={classes.labelFile}>
+								Update avatar
+							</label>
+						)}
 					</div>
 					<ProfileStatusHooks status={status} updateStatus={updateStatus} />
 				</div>
