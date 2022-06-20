@@ -45,7 +45,7 @@ const ProfileInfo = ({ profile, status, updateStatus, isOwner, savePhoto }) => {
 							/>
 						)}
 						{isOwner && (
-							<label for="updateAva" className={classes.labelFile}>
+							<label htmlFor="updateAva" className={classes.labelFile}>
 								Update avatar
 							</label>
 						)}
