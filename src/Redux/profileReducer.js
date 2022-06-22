@@ -5,6 +5,7 @@ const SET_USER_PROFILE = 'SET_USER_PROFILE';
 const SET_STATUS = 'SET_STATUS';
 const DELETED_POST = 'DELETED_POST';
 const SAVE_PHOTO_SUCCESS = 'SAVE_PHOTO_SUCCESS';
+const PRELOADER_PHOTO = 'PRELOADER_PHOTO';
 
 let initialState = {
 	posts: [
@@ -32,6 +33,7 @@ let initialState = {
 	],
 	profile: null,
 	status: '',
+	isLoaded: false,
 };
 
 const profileReducer = (state = initialState, action) => {
@@ -72,6 +74,12 @@ const profileReducer = (state = initialState, action) => {
 				profile: { ...state.profile, photos: action.photos },
 			};
 		}
+		case PRELOADER_PHOTO: {
+			return {
+				...state,
+				isLoaded: action.isLoaded,
+			};
+		}
 		default:
 			return state;
 	}
@@ -110,6 +118,13 @@ export const savePhotoSuccess = (photos) => {
 	};
 };
 
+export const setPreloaderPhoto = (isLoaded) => {
+	return {
+		type: 'PRELOADER_PHOTO',
+		isLoaded,
+	};
+};
+
 export const getUserProfileTC = (userId) => async (dispatch) => {
 	const response = await profileAPI.getProfile(userId);
 	dispatch(setUserProfile(response.data));
@@ -128,9 +143,11 @@ export const updateStatus = (status) => async (dispatch) => {
 };
 
 export const savePhoto = (file) => async (dispatch) => {
+	dispatch(setPreloaderPhoto(true));
 	const response = await profileAPI.savePhoto(file);
 	if (response.data.resultCode === 0) {
 		dispatch(savePhotoSuccess(response.data.data.photos));
+		dispatch(setPreloaderPhoto(false));
 	}
 };
 

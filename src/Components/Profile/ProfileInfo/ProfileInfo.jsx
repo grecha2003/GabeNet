@@ -3,8 +3,9 @@ import classes from './ProfileInfo.module.scss';
 import Spinner from '../../common/Spinner/Spinner';
 import avaImg from '../../assets/avaUsers.png';
 import ProfileStatusHooks from './ProfileStatusHooks';
+import MiniSpinner from '../../common/MiniSpinner/MiniSpinner';
 
-const ProfileInfo = ({ profile, status, updateStatus, isOwner, savePhoto }) => {
+const ProfileInfo = ({ profile, status, updateStatus, isOwner, savePhoto, isLoaded }) => {
 	if (!profile) {
 		return <Spinner />;
 	}
@@ -12,6 +13,12 @@ const ProfileInfo = ({ profile, status, updateStatus, isOwner, savePhoto }) => {
 	const onMainPhotoSelected = (e) => {
 		if (e.target.files.length) {
 			savePhoto(e.target.files[0]);
+		}
+	};
+
+	const setMiniSpinner = () => {
+		if (isLoaded === true) {
+			return <MiniSpinner />;
 		}
 	};
 
@@ -28,7 +35,8 @@ const ProfileInfo = ({ profile, status, updateStatus, isOwner, savePhoto }) => {
 			</div>
 			<div className={classes.profile__text}>
 				<div>
-					<div className={classes.moduleFiles}>
+					<div className={classes.moduleFiles} style={{ position: 'relative' }}>
+						{setMiniSpinner()}
 						<img
 							className={classes.img__avatar}
 							src={profile.photos.large || avaImg}

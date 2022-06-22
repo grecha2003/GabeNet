@@ -49,6 +49,7 @@ class ProfileContainer extends Component {
 					status={this.props.status}
 					updateStatus={this.props.updateStatus}
 					savePhoto={this.props.savePhoto}
+					isLoaded={this.props.isLoaded}
 				/>
 			</div>
 		);
@@ -60,6 +61,7 @@ let mapStateToProps = (state) => ({
 	status: state.profilePage.status,
 	authorizedUserId: state.auth.id,
 	isAuth: state.auth.isAuth,
+	isLoaded: state.profilePage.isLoaded,
 });
 
 export default compose(

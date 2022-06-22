@@ -11,6 +11,7 @@ const Profile = (props) => {
 				profile={props.profile}
 				status={props.status}
 				updateStatus={props.updateStatus}
+				isLoaded={props.isLoaded}
 			/>
 			<MyPostsContainer profile={props.profile} />
 		</div>
