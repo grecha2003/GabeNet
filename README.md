@@ -5,7 +5,7 @@
 ### Email: free@samuraijs.com
 ### Password: free
 
-### Technologies
+### Technologies:
 • React</br>
 • Redux</br>
 • local bootstrap</br>
