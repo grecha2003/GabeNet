@@ -2,7 +2,7 @@
 	"name": "it-kamasutra-courses",
 	"version": "0.1.0",
 	"private": true,
-	"homepage": "https://grecha2003.github.io/social-network-react/",
+	"homepage": "https://grecha2003.github.io/GabeNet/",
 	"dependencies": {
 		"@testing-library/jest-dom": "^5.16.4",
 		"@testing-library/user-event": "^13.5.0",
