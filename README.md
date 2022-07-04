@@ -1,5 +1,6 @@
 # Social Network "GabeNet"
-# Test email and password to log in to the account:
+## Link: https://grecha2003.github.io/GabeNet/
+## Test email and password to log in to the account:
 
 ### Email: free@samuraijs.com
 ### Password: free
