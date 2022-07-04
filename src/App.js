@@ -10,7 +10,7 @@ import { connect, Provider } from 'react-redux';
 import { initializeApp } from './Redux/appReducer';
 import Spinner from './Components/common/Spinner/Spinner';
 import store from './Redux/reduxStore';
-import './bootstrap/dist/css/bootstrap.css';
+import './bootstrap/scss/bootstrap.scss';
 
 const ProfileContainerLazy = React.lazy(() => import('./Components/Profile/ProfileContainer'));
 const MessagesContainerLazy = React.lazy(() => import('./Components/Messages/MessagesContainer'));
