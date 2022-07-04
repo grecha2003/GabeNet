@@ -6,10 +6,10 @@
 ### Password: free
 
 ### Technologies
-• React
-• Redux
-• local bootstrap
-• gh-pages
+• React</br>
+• Redux</br>
+• local bootstrap</br>
+• gh-pages</br>
 
 
 ## Screenshots:
