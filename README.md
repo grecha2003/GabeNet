@@ -5,6 +5,13 @@
 ### Email: free@samuraijs.com
 ### Password: free
 
+### Technologies
+• React
+• Redux
+• local bootstrap
+• gh-pages
+
+
 ## Screenshots:
 <img src="https://i.ibb.co/F8qbhqd/04-07-2022-171156.png" width="800"/>
 <img src="https://i.ibb.co/qNPG3BK/04-07-2022-171213.png" width="800"/>
