@@ -1,0 +1,29 @@
+{
+  "files": {
+    "main.css": "/GabeNet/static/css/main.d2be81a6.css",
+    "main.js": "/GabeNet/static/js/main.4f7bcdcf.js",
+    "static/css/603.720a8040.chunk.css": "/GabeNet/static/css/603.720a8040.chunk.css",
+    "static/js/603.3866ec40.chunk.js": "/GabeNet/static/js/603.3866ec40.chunk.js",
+    "static/css/171.27541973.chunk.css": "/GabeNet/static/css/171.27541973.chunk.css",
+    "static/js/171.0f83fb5b.chunk.js": "/GabeNet/static/js/171.0f83fb5b.chunk.js",
+    "static/media/fa-solid-900.svg": "/GabeNet/static/media/fa-solid-900.45690f4345fd0e303e35.svg",
+    "static/media/fa-solid-900.eot": "/GabeNet/static/media/fa-solid-900.9bbb245e67a133f6e486.eot",
+    "static/media/fa-solid-900.ttf": "/GabeNet/static/media/fa-solid-900.be9ee23c0c6390141475.ttf",
+    "static/media/logo.png": "/GabeNet/static/media/logo.f2e7c3b871a81ef04ead.png",
+    "static/media/fa-solid-900.woff": "/GabeNet/static/media/fa-solid-900.eeccf4f66002c6f2ba24.woff",
+    "static/media/fa-solid-900.woff2": "/GabeNet/static/media/fa-solid-900.1551f4f60c37af51121f.woff2",
+    "static/media/avaUsers.png": "/GabeNet/static/media/avaUsers.f55a8d1a88ae0b9538b7.png",
+    "index.html": "/GabeNet/index.html",
+    "static/media/spinner.svg": "/GabeNet/static/media/spinner.fbf7eb93ca577c1c329fba11e31180b4.svg",
+    "main.d2be81a6.css.map": "/GabeNet/static/css/main.d2be81a6.css.map",
+    "main.4f7bcdcf.js.map": "/GabeNet/static/js/main.4f7bcdcf.js.map",
+    "603.720a8040.chunk.css.map": "/GabeNet/static/css/603.720a8040.chunk.css.map",
+    "603.3866ec40.chunk.js.map": "/GabeNet/static/js/603.3866ec40.chunk.js.map",
+    "171.27541973.chunk.css.map": "/GabeNet/static/css/171.27541973.chunk.css.map",
+    "171.0f83fb5b.chunk.js.map": "/GabeNet/static/js/171.0f83fb5b.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d2be81a6.css",
+    "static/js/main.4f7bcdcf.js"
+  ]
+}
